@@ -5,15 +5,13 @@
  */
 
 import { addPreSendListener, removePreSendListener } from "@api/MessageEvents";
+import { Devs } from "@utils/constants";
 import definePlugin from "@utils/types";
 import { ChannelStore, GuildMemberStore, SelectedChannelStore, SelectedGuildStore } from "@webpack/common";
 
 export default definePlugin({
     name: "atSomeone",
-    authors: [{
-        name: "Joona",
-        id: 297410829589020673n
-    }],
+    authors: [Devs.Joona],
     description: "Mention someone randomly",
     patches: [
         {
