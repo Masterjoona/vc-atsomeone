@@ -34,6 +34,13 @@ export default definePlugin({
                 }
             ],
         },
+        {
+            find: "inQuote:",
+            replacement: {
+                match: /\|Clyde/,
+                replace: "$&|someone"
+            }
+        }
     ],
     start() {
         this.preSend = addPreSendListener((_, msg) => {
