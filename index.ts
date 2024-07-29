@@ -15,13 +15,6 @@ export default definePlugin({
     description: "Mention someone randomly",
     patches: [
         {
-            find: "MENTION_EVERYONE_AUTOCOMPLETE_DESCRIPTION}",
-            replacement: {
-                match: /MENTION_EVERYONE_AUTOCOMPLETE_DESCRIPTION}\),/,
-                replace: "$&MENTION_SOMEONE: ()=>({test:'someone',text:'@someone',description:'Mention someone randomly'}),"
-            }
-        },
-        {
             find: ".LAUNCHABLE_APPLICATIONS;",
             replacement: [
                 {
@@ -29,8 +22,8 @@ export default definePlugin({
                     replace: "$&,$1()($2,atSomeone().test)&&$3.push(atSomeone())"
                 },
                 {
-                    match: /MENTION_EVERYONE(?<=\((\w)=.{10,35})/,
-                    replace: "$&,atSomeone=$1.MENTION_SOMEONE"
+                    match: /.MENTION_HERE,/,
+                    replace: "$&atSomeone= ()=>({test:'someone',text:'@someone',description:'Mention someone randomly'}),"
                 }
             ],
         },
