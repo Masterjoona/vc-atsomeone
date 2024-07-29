@@ -19,12 +19,8 @@ export default definePlugin({
             replacement: [
                 {
                     match: /&(\i)\(\)\((\i),\i\(\)\.test\)&&(\i)\.push\(\i\(\)\)/g,
-                    replace: "$&,$1()($2,atSomeone().test)&&$3.push(atSomeone())"
+                    replace: "$&,$1()($2,/someone/.test)&&$3.push({text:'@someone',description:'Mention someone randomly'})"
                 },
-                {
-                    match: /.MENTION_HERE,/,
-                    replace: "$&atSomeone= ()=>({test:'someone',text:'@someone',description:'Mention someone randomly'}),"
-                }
             ],
         },
         {
