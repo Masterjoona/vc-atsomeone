@@ -54,7 +54,6 @@ export default definePlugin({
         if (roleId) {
             members = members.filter(m => m.roles.includes(roleId));
         }
-        console.log(members);
         return members[~~(members.length * Math.random())].userId;
     }
 });
