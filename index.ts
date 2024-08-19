@@ -19,7 +19,7 @@ export default definePlugin({
             replacement: [
                 {
                     match: /&(\i)\(\)\((\i),\i\(\)\.test\)&&(\i)\.push\(\i\(\)\)/g,
-                    replace: "$&,$1()($2,/someone/.test)&&$3.push({text:'@someone',description:'Mention someone randomly'})"
+                    replace: "$&,(arguments[0].canMentionUsers&&$1()($2,'someone')&&$3.push({text:'@someone',description:'Mention someone randomly'}))"
                 },
             ],
         },
